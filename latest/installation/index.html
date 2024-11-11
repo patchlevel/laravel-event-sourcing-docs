@@ -393,35 +393,11 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#middlewares-optional" class="md-nav__link">
+  <a href="#middlewares" class="md-nav__link">
     <span class="md-ellipsis">
-      Middlewares (optional)
+      Middlewares
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Middlewares (optional)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#auto-setup-middleware" class="md-nav__link">
-    <span class="md-ellipsis">
-      Auto Setup Middleware
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subscription-rebuild-after-file-change-middleware" class="md-nav__link">
-    <span class="md-ellipsis">
-      Subscription Rebuild After File Change Middleware
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -691,35 +667,11 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#middlewares-optional" class="md-nav__link">
+  <a href="#middlewares" class="md-nav__link">
     <span class="md-ellipsis">
-      Middlewares (optional)
+      Middlewares
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Middlewares (optional)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#auto-setup-middleware" class="md-nav__link">
-    <span class="md-ellipsis">
-      Auto Setup Middleware
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subscription-rebuild-after-file-change-middleware" class="md-nav__link">
-    <span class="md-ellipsis">
-      Subscription Rebuild After File Change Middleware
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -763,21 +715,14 @@ It will be published to <code>config/event-sourcing.php</code></p>
 And then run the migrations:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>migrate
 </code></pre></div>
-<h2 id="middlewares-optional">Middlewares (optional)</h2>
-<p>If you want to use the provided middlewares, you can add them to your <code>config/app.php</code>:</p>
-<h3 id="auto-setup-middleware">Auto Setup Middleware</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">use</span> <span class="nx">Patchlevel\LaravelEventSourcing\Middleware\AutoSetupMiddleware</span><span class="p">;</span>
+<h2 id="middlewares">Middlewares</h2>
+<p>Some features need a middleware to work properly.
+You should add the middleware to your <code>bootstrap/app.php</code> file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">use</span> <span class="nx">Patchlevel\LaravelEventSourcing\Middleware\EventSourcingMiddleware</span><span class="p">;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">-&gt;</span><span class="na">withMiddleware</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Middleware</span> <span class="nv">$middleware</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nv">$middleware</span><span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nx">AutoSetupMiddleware</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nv">$middleware</span><span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nx">EventSourcingMiddleware</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">})</span>
-</code></pre></div>
-<h3 id="subscription-rebuild-after-file-change-middleware">Subscription Rebuild After File Change Middleware</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">use</span> <span class="nx">Patchlevel\LaravelEventSourcing\Middleware\SubscriptionRebuildAfterFileChangeMiddleware</span><span class="p">;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">-&gt;</span><span class="na">withMiddleware</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Middleware</span> <span class="nv">$middleware</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="nv">$middleware</span><span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nx">SubscriptionRebuildAfterFileChangeMiddleware</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">})</span>
 </code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
