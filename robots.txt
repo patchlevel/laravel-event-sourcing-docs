@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://laravel-event-sourcing.patchlevel.io/latest/sitemap.xml
