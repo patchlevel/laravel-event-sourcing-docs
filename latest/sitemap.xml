@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://laravel-event-sourcing.patchlevel.io/latest/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-08</lastmod>
     </url>
     <url>
          <loc>https://laravel-event-sourcing.patchlevel.io/latest/facades/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-08</lastmod>
     </url>
     <url>
          <loc>https://laravel-event-sourcing.patchlevel.io/latest/getting_started/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-08</lastmod>
     </url>
     <url>
          <loc>https://laravel-event-sourcing.patchlevel.io/latest/installation/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-08</lastmod>
     </url>
 </urlset>
