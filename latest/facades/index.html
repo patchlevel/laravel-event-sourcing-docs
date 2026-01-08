@@ -18,6 +18,8 @@
         <link rel="prev" href="../getting_started/">
       
       
+        <link rel="next" href="../configuration/">
+      
       
         
       
@@ -476,10 +478,70 @@ You're not viewing the latest version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#projection-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projection Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandbus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CommandBus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querybus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QueryBus
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -516,10 +578,10 @@ You're not viewing the latest version.
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -537,8 +599,8 @@ You're not viewing the latest version.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -754,6 +816,39 @@ You're not viewing the latest version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#projection-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projection Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandbus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CommandBus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querybus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QueryBus
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -827,6 +922,24 @@ or load messages by criteria:</p>
 <p>This documentation is limited to the package integration.
 You should also read the <a href="https://event-sourcing.patchlevel.io/latest/">library documentation</a>.</p>
 </div>
+<h2 id="projection-connection">Projection Connection</h2>
+<p>You can access the projection connection using the <code>ProjectionConnection</code> facade.
+This facade provides you the <code>DBAL\Connection</code> used to connect to the projection database.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation is limited to the package integration.
+You should also read the <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#api">dbal documentation</a>.</p>
+</div>
+<h2 id="commandbus">CommandBus</h2>
+<p>You can access the command bus using the <code>CommandBus</code> facade. With this facade you can dispatch commands.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">CommandBus</span><span class="o">::</span><span class="na">dispatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">BookHotel</span><span class="p">());</span>
+</code></pre></div>
+Then, the command will be handled by the corresponding command handler specified via <code>#[Handle]</code> attribute.</p>
+<h2 id="querybus">QueryBus</h2>
+<p>You can access the query bus using the <code>QueryBus</code> facade. With this facade you can dispatch queries.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">$result</span> <span class="o">=</span> <span class="nx">QueryBus</span><span class="o">::</span><span class="na">dispatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">HotelCountQuery</span><span class="p">());</span>
+</code></pre></div>
+Then, the query will be handled by the corresponding query handler specified via <code>#[Answer]</code> attribute.</p>
 
 
 
@@ -879,6 +992,22 @@ You should also read the <a href="https://event-sourcing.patchlevel.io/latest/">
             </div>
           </a>
         
+        
+          
+          <a href="../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Configuration
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
